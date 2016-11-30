@@ -48,7 +48,10 @@ class IndexView(generic.ListView):
 def results(request, document_id):
     doc = get_object_or_404(Document, pk=document_id)
     ifile = doc.docfile.url
-    main(ifile, 4)
+    if not doc.analyzed:
+        main(ifile, 4)
+        doc.analyzed = True
+        doc.save()
     documents = Document.objects.all()
     form = DocumentForm()
     return render(request, 'index.html', {'documents':documents, 'form':form, 'ifile':ifile})
