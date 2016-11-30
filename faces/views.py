@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
 from faces.models import Document
 from faces.forms import DocumentForm
+from django.utils import timezone
+from faces.utils import main
+import PIL
+import cStringIO
 
 
 def list(request):
@@ -17,7 +21,9 @@ def list(request):
             newdoc.save()
 
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('list'))
+            return HttpResponseRedirect(reverse('results', args=(newdoc.id,)))
+            #return render(request, 'index.html', {'ifile':newdoc.docfile.url})
+            #return HttpResponseRedirect(reverse('results',args=(newdoc.pk,)))
     else:
         form = DocumentForm()  # A empty, unbound form
 
@@ -27,8 +33,8 @@ def list(request):
     # Render list page with the documents and the form
     return render(
         request,
-        'list.html',
-        {'documents': documents, 'form': form}
+        'index.html',
+        {'documents': documents, 'form': form,}
     )
 
 
@@ -40,4 +46,13 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         return None
+
+def results(request, document_id):
+    doc = get_object_or_404(Document, pk=document_id)
+    ifile = doc.docfile.url
+    main(ifile, 4)
+    documents = Document.objects.all()
+    form = DocumentForm()
+    return render(request, 'index.html', {'documents':documents, 'form':form, 'ifile':ifile})
+
 

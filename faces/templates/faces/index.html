@@ -67,10 +67,16 @@
       	<div class="col-md-4">
       		<form action="{% url "list" %}" method="post" enctype="multipart/form-data">
               {% csrf_token %}
-      			<p>
-                  <input id="id_image" type="file" class="" name="image">
-                </p>
-                <input type="submit" value="Submit" />
+      			<p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+
+            <p><input type="submit" value="Upload"/></p>
       		</form>
       		{% if result %}
       		<blockquote>The person in the picture is most likely feeling: {{ result }}</blockquote>
@@ -78,14 +84,25 @@
       	</div>
       	<div class="col-md-6">
       		{% if ifile %}
-      		<img src="data:image/gif;base64,{{ ifile }}" class="img-rounded" alt="Upload Image">
+      		<img src="{{ ifile }}" class="img-rounded" alt="Upload Image">
       		{% endif %}
       	</div>
       </div>
       
 	<video width="320" height="240" controls>
 		<source src="{% static 'faces/images/jurassicparkf.mp4' %}" type="video/mp4">
-	</video> 
+	</video>
+
+      {% if documents %}
+            <ul>
+                {% for document in documents %}
+                    <!--<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li> -->
+                  <li><a href="{% url "results" document.id %}">{{ document.docfile.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No documents.</p>
+        {% endif %}
 	</div>
 	<!-- 
     <!-- Bootstrap core JavaScript
