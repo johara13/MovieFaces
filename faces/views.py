@@ -9,8 +9,6 @@ from faces.forms import DocumentForm
 from django.utils import timezone
 from faces.utils import main
 import PIL
-import cStringIO
-
 
 def list(request):
     # Handle file upload
