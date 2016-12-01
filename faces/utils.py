@@ -3,6 +3,7 @@ from googleapiclient import discovery
 from oauth2client.client import GoogleCredentials
 import base64
 from PIL import Image, ImageDraw
+import os
 
 
 
@@ -48,7 +49,10 @@ def main(input_filename, max_results):
         highlight_faces(image, faces)
 
 def grab_frame(videofile, timestamp):
-    subprocess.call('ffmpeg -i %s -vf "select=gte(n\,100)" -vframes 1 out_img.png'% videofile)
+    filepath = os.path.dirname(videofile)
+    outpath = filepath+'/out%03d.png'
+    #subprocess.call('ffmpeg -i %s -vf "select=gte(n\,100)" -vframes 1 %s'% (videofile, outpath))
+    subprocess.call('ffmpeg -i %s -ss 00:00:14 -vframes 1 %s'% (videofile, outpath))
 
 def get_totalframes(videofile):
     return subprocess.check_output('ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 %s'% videofile)

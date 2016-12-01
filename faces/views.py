@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
-from faces.models import Document
+from .models import Document
 from faces.forms import DocumentForm
 from django.utils import timezone
 from faces.utils import main
