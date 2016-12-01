@@ -4,9 +4,9 @@
     <list default="true" id="e0547fd6-cd78-40d9-bf68-1226f0071312" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/faces/models.py" afterPath="$PROJECT_DIR$/faces/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/faces/utils.py" afterPath="$PROJECT_DIR$/faces/utils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/faces/views.py" afterPath="$PROJECT_DIR$/faces/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/facesproject/settings.py" afterPath="$PROJECT_DIR$/facesproject/settings.py" />
     </list>
     <ignored path="facesproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/faces/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.6523702">
+              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
               <folding>
                 <element signature="e#24#78#0" expanded="true" />
               </folding>
@@ -39,10 +39,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/faces/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1241535">
+            <state vertical-scroll-proportion="0.0">
               <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
               <folding>
                 <element signature="e#24#52#0" expanded="true" />
@@ -77,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/faces/utils.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+              <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -89,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/facesproject/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
+              <caret line="122" column="23" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -119,8 +119,10 @@
         <entry file="file://$PROJECT_DIR$/facesproject/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-              <folding />
+              <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+              <folding>
+                <element signature="e#646#686#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,15 +149,15 @@
       <list>
         <option value="$PROJECT_DIR$/faces/tests.py" />
         <option value="$PROJECT_DIR$/faces/templates/faces/list.html" />
-        <option value="$PROJECT_DIR$/facesproject/urls.py" />
         <option value="$PROJECT_DIR$/faces/admin.py" />
         <option value="$PROJECT_DIR$/faces/forms.py" />
-        <option value="$PROJECT_DIR$/facesproject/settings.py" />
         <option value="$PROJECT_DIR$/faces/urls.py" />
         <option value="$PROJECT_DIR$/faces/templates/faces/index.html" />
+        <option value="$PROJECT_DIR$/faces/models.py" />
+        <option value="$PROJECT_DIR$/facesproject/settings.py" />
+        <option value="$PROJECT_DIR$/facesproject/urls.py" />
         <option value="$PROJECT_DIR$/faces/utils.py" />
         <option value="$PROJECT_DIR$/faces/views.py" />
-        <option value="$PROJECT_DIR$/faces/models.py" />
       </list>
     </option>
   </component>
@@ -380,15 +382,22 @@
       <option name="project" value="LOCAL" />
       <updated>1480539962617</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="made it so uploaded files go into their own folder so when its videos that are uploaded there is a place for all the generated images to go. Also adjusted video frame grabber a bit but havent tested">
+      <created>1480631628788</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1480631628788</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1421875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.033854168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -396,7 +405,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -421,7 +429,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed an import" />
     <MESSAGE value="fixed bug where if you click on an item on the list it would run it through the analyzer again. Now only runs each photo once through the analyzer." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug where if you click on an item on the list it would run it through the analyzer again. Now only runs each photo once through the analyzer." />
+    <MESSAGE value="made it so uploaded files go into their own folder so when its videos that are uploaded there is a place for all the generated images to go. Also adjusted video frame grabber a bit but havent tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="made it so uploaded files go into their own folder so when its videos that are uploaded there is a place for all the generated images to go. Also adjusted video frame grabber a bit but havent tested" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -506,7 +515,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="e#646#686#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -596,7 +607,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="e#646#686#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -625,14 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/facesproject/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/faces/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -647,14 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/facesproject/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -677,12 +674,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/faces/views.py">
+    <entry file="file://$PROJECT_DIR$/faces/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
           <folding>
-            <element signature="e#24#78#0" expanded="true" />
+            <element signature="e#24#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facesproject/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="122" column="23" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facesproject/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+          <folding>
+            <element signature="e#646#686#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -690,19 +705,19 @@
     <entry file="file://$PROJECT_DIR$/faces/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/faces/models.py">
+    <entry file="file://$PROJECT_DIR$/faces/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1241535">
-          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.6523702">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
-            <element signature="e#24#52#0" expanded="true" />
+            <element signature="e#24#78#0" expanded="true" />
           </folding>
         </state>
       </provider>
