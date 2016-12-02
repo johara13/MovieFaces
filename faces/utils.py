@@ -29,7 +29,10 @@ def detect_face(face_file, max_results=4):
     })
     response = request.execute()
 
-    return response['responses'][0]['faceAnnotations']
+    if response['responses'] and 'faceAnnotations' in response['responses'][0]:
+        return response['responses'][0]['faceAnnotations']
+    else:
+        return None
 
 def highlight_faces(image,faces):
     im = Image.open(image)
@@ -43,10 +46,15 @@ def highlight_faces(image,faces):
     im.save(image)
 
 def main(input_filename, max_results):
-    with open('.'+input_filename, 'r+b') as image:
-        faces = detect_face(image, max_results)
-        image.seek(0)
-        highlight_faces(image, faces)
+    dirname = os.path.dirname(input_filename)
+
+    for file in os.listdir(dirname):
+        if file.endswith(".png"):
+            with open(dirname+'/'+file, 'r+b') as image:
+                faces = detect_face(image, max_results)
+                image.seek(0)
+                if faces:
+                    highlight_faces(image, faces)
 
 def grab_frame(videofile):
     filepath = os.path.dirname(videofile)

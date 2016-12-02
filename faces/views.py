@@ -47,19 +47,19 @@ class IndexView(generic.ListView):
 
 def results(request, document_id):
     doc = get_object_or_404(Document, pk=document_id)
-    # ifile = doc.docfile.url
+    ifile = doc.docfile.url
     # if not doc.analyzed:
     #     main(ifile, 4)
     #     doc.analyzed = True
     #     doc.save()
 
     #for testing purposes
-    #videofile = "C:/Users/wildcat/facesproject/faces/static/faces/images/jurassicparkf.mp4"
+    videofile = "C:/Users/wildcat/facesproject/faces/static/faces/images/jurassicparkf.mp4"
     #grab_frame(videofile)
-
+    main(videofile, 4)
     documents = Document.objects.all()
     form = DocumentForm()
-    #return render(request, 'index.html', {'documents':documents, 'form':form, 'ifile':ifile})
-    return render(request, 'index.html', {'documents':documents, 'form':form})
+    return render(request, 'index.html', {'documents':documents, 'form':form, 'ifile':ifile})
+    #return render(request, 'index.html', {'documents':documents, 'form':form})
 
 
