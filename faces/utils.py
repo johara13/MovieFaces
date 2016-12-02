@@ -48,9 +48,9 @@ def highlight_faces(image,faces):
 def main(input_filename, max_results):
     dirname = os.path.dirname(input_filename)
 
-    for file in os.listdir(dirname):
+    for file in os.listdir('.'+dirname):
         if file.endswith(".png"):
-            with open(dirname+'/'+file, 'r+b') as image:
+            with open('.'+dirname+'/'+file, 'r+b') as image:
                 faces = detect_face(image, max_results)
                 image.seek(0)
                 if faces:
@@ -60,7 +60,7 @@ def grab_frame(videofile):
     filepath = os.path.dirname(videofile)
     outpath = filepath+'/out%03d.png'
     #subprocess.call('ffmpeg -i %s -vf "select=gte(n\,100)" -vframes 1 %s'% (videofile, outpath))
-    subprocess.call('ffmpeg -i %s -vf fps=1/2 %s'% (videofile, outpath))
+    subprocess.call('ffmpeg -i %s -vf fps=1/2 %s'% ('.'+videofile, '.'+outpath))
 
 def get_totalframes(videofile):
     return subprocess.check_output('ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 %s'% videofile)

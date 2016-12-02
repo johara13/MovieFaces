@@ -48,15 +48,20 @@ class IndexView(generic.ListView):
 def results(request, document_id):
     doc = get_object_or_404(Document, pk=document_id)
     ifile = doc.docfile.url
-    # if not doc.analyzed:
-    #     main(ifile, 4)
-    #     doc.analyzed = True
-    #     doc.save()
+
+    #splits video into picture ~2-4 seconds
+    grab_frame(ifile)
+
+    #analyzes pictures just created and makes sure they won't be analyzed for a second time
+    if not doc.analyzed:
+        main(ifile, 4)
+        doc.analyzed = True
+        doc.save()
 
     #for testing purposes
-    videofile = "C:/Users/wildcat/facesproject/faces/static/faces/images/jurassicparkf.mp4"
+    #videofile = "C:/Users/wildcat/facesproject/faces/static/faces/images/jurassicparkf.mp4"
     #grab_frame(videofile)
-    main(videofile, 4)
+    #main(videofile, 4)
     documents = Document.objects.all()
     form = DocumentForm()
     return render(request, 'index.html', {'documents':documents, 'form':form, 'ifile':ifile})

@@ -82,7 +82,10 @@
       	</div>
       	<div class="col-md-6">
       		{% if ifile %}
-      		<img src="{{ ifile }}" class="img-rounded" alt="Upload Image">
+      		<!-- <img src="{{ ifile }}" class="img-rounded" alt="Upload Image"> -->
+            <video width="320" height="240" controls>
+              <source src="{{ ifile }}" type="video/mp4">
+            </video>
       		{% endif %}
       	</div>
       </div>
