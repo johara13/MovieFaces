@@ -49,11 +49,10 @@ def results(request, document_id):
     doc = get_object_or_404(Document, pk=document_id)
     ifile = doc.docfile.url
 
-    #splits video into picture ~2-4 seconds
-    grab_frame(ifile)
-
     #analyzes pictures just created and makes sure they won't be analyzed for a second time
     if not doc.analyzed:
+        #splits video into picture ~2-4 seconds
+        grab_frame(ifile)
         main(ifile, 4)
         doc.analyzed = True
         doc.save()
@@ -62,9 +61,12 @@ def results(request, document_id):
     #videofile = "C:/Users/wildcat/facesproject/faces/static/faces/images/jurassicparkf.mp4"
     #grab_frame(videofile)
     #main(videofile, 4)
+
+    #grabs list of all Documents
     documents = Document.objects.all()
+    #unbound form
     form = DocumentForm()
     return render(request, 'index.html', {'documents':documents, 'form':form, 'ifile':ifile})
-    #return render(request, 'index.html', {'documents':documents, 'form':form})
+
 
 

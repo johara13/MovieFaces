@@ -29,6 +29,7 @@ def detect_face(face_file, max_results=4):
     })
     response = request.execute()
 
+    #doesn't crash when there are no faces
     if response['responses'] and 'faceAnnotations' in response['responses'][0]:
         return response['responses'][0]['faceAnnotations']
     else:
@@ -46,6 +47,7 @@ def highlight_faces(image,faces):
     im.save(image)
 
 def main(input_filename, max_results):
+    #grabs directory videofile is in and runs every .png file through the vision api
     dirname = os.path.dirname(input_filename)
 
     for file in os.listdir('.'+dirname):
@@ -57,10 +59,12 @@ def main(input_filename, max_results):
                     highlight_faces(image, faces)
 
 def grab_frame(videofile):
+    #grabs the video file and splits it into an image ~every 2-4 seconds
     filepath = os.path.dirname(videofile)
     outpath = filepath+'/out%03d.png'
     #subprocess.call('ffmpeg -i %s -vf "select=gte(n\,100)" -vframes 1 %s'% (videofile, outpath))
     subprocess.call('ffmpeg -i %s -vf fps=1/2 %s'% ('.'+videofile, '.'+outpath))
 
+#not used
 def get_totalframes(videofile):
     return subprocess.check_output('ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 %s'% videofile)
