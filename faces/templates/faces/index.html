@@ -124,8 +124,168 @@ $(window).on('load', function() {
       {% if ifile %}
       <!-- <img src="{{ ifile }}" class="img-rounded" alt="Upload Image"> -->
       <video width="320" height="240" controls>
-        <source src="{{ ifile }}" type="video/mp4">
+        <source src="{{ ifile.docfile.url }}" type="video/mp4">
       </video>
+      <blockquote>This video has a Joy score of: {{ ifile.v_scoreHappy }}</blockquote>
+      <blockquote>This video has an Anger score of: {{ ifile.v_scoreAngry }}</blockquote>
+      <blockquote>This video has a Sorrow score of: {{ ifile.v_scoreSad }}</blockquote>
+      <blockquote>This video has a Surprise score of: {{ ifile.v_scoreSurprise }}</blockquote>
+      <div id="slider" class="flexslider">
+        <ul class="slides">
+          {% for picture in ifile.picture_set.all %}
+          {% if picture.numFaces >= 1 %}
+          <li>
+          <img src="{{ picture.picfile.url }}">
+          <blockquote>Person 1 is feeling: {{ picture.face1 }}</blockquote>
+          {% endif %}
+          {% if picture.numFaces >= 2 %}
+          <blockquote>Person 2 is feeling: {{picture.face2 }}</blockquote>
+          {% endif %}
+          {% if picture.face3 %}
+          <blockquote>Person 3 is feeling: {{picture.face3 }}</blockquote>
+          {% endif %}
+          {% if picture.face4 %}
+          <blockquote>Person 4 is feeling: {{picture.face4 }}</blockquote>
+          {% endif %}
+          </li>
+          {% endfor %}
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out001.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out002.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out003.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out004.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out005.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out006.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out007.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out008.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out009.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out010.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out011.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out012.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out013.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out014.png' %}"/>-->
+          <!--</li><li>-->
+          <!--<img src="{% static 'faces/images/out015.png' %}"/>-->
+        <!--</li><li>-->
+          <!--<img src="{% static 'faces/images/out016.png' %}"/>-->
+        <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out017.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out018.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out019.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out020.png' %}"/>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<img src="{% static 'faces/images/out021.png' %}"/>-->
+          <!--</li>-->
+        </ul>
+      </div>
+
+        <div id="carousel" class="flexslider">
+          <ul class="slides">
+            {% for picture in ifile.picture_set.all %}
+            {% if picture.numFaces >= 1 %}
+            <li>
+              <img src="{{ picture.picfile.url }}"/>
+            </li>
+            {% endif %}
+            {% endfor %}
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out001.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out002.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out003.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out004.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out005.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out006.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out007.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out008.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out009.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out010.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out011.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out012.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out013.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out014.png' %}"/>-->
+            <!--</li><li>-->
+            <!--<img src="{% static 'faces/images/out015.png' %}"/>-->
+          <!--</li><li>-->
+            <!--<img src="{% static 'faces/images/out016.png' %}"/>-->
+          <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out017.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out018.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out019.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out020.png' %}"/>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<img src="{% static 'faces/images/out021.png' %}"/>-->
+            <!--</li>-->
+            <!-- items mirrored twice, total of 12 -->
+          </ul>
+        </div>
       {% endif %}
     </div>
   </div>
@@ -144,137 +304,8 @@ $(window).on('load', function() {
   {% else %}
   <p>No documents.</p>
   {% endif %}
-  <div id="slider" class="flexslider">
-    <ul class="slides">
-      <li>
-        <img src="{% static 'faces/images/out001.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out002.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out003.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out004.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out005.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out006.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out007.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out008.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out009.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out010.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out011.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out012.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out013.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out014.png' %}"/>
-      </li><li>
-        <img src="{% static 'faces/images/out015.png' %}"/>
-      </li><li>
-        <img src="{% static 'faces/images/out016.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out017.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out018.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out019.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out020.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out021.png' %}"/>
-      </li>
-    </ul>
-  </div>
-  <div id="carousel" class="flexslider">
-    <ul class="slides">
-      <li>
-        <img src="{% static 'faces/images/out001.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out002.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out003.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out004.png' %}"/>
-      </li>
-            <li>
-        <img src="{% static 'faces/images/out005.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out006.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out007.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out008.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out009.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out010.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out011.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out012.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out013.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out014.png' %}"/>
-      </li><li>
-        <img src="{% static 'faces/images/out015.png' %}"/>
-      </li><li>
-        <img src="{% static 'faces/images/out016.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out017.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out018.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out019.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out020.png' %}"/>
-      </li>
-      <li>
-        <img src="{% static 'faces/images/out021.png' %}"/>
-      </li>
-      <!-- items mirrored twice, total of 12 -->
-    </ul>
-  </div>
+
+
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -53,7 +53,7 @@ def results(request, document_id):
     if not doc.analyzed:
         #splits video into picture ~2-4 seconds
         grab_frame(ifile)
-        main(ifile, 4)
+        main(doc, 4)
         doc.analyzed = True
         doc.save()
 
@@ -66,7 +66,7 @@ def results(request, document_id):
     documents = Document.objects.all()
     #unbound form
     form = DocumentForm()
-    return render(request, 'index.html', {'documents':documents, 'form':form, 'ifile':ifile})
+    return render(request, 'index.html', {'documents':documents, 'form':form, 'ifile':doc})
 
 
 

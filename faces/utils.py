@@ -4,8 +4,20 @@ from oauth2client.client import GoogleCredentials
 import base64
 from PIL import Image, ImageDraw
 import os
+from faces.models import Document, Picture
 
+RATINGS = ['LIKELY','VERY_LIKELY']
 
+def likely_sentiment(face):
+    #returns the sentiment felt in the face data
+    if face['sorrowLikelihood'] in RATINGS:
+        return 'SORROW'
+    if face['surpriseLikelihood'] in RATINGS:
+        return 'SURPRISE'
+    if face['angerLikelihood'] in RATINGS:
+        return 'ANGER'
+    if face['joyLikelihood'] in RATINGS:
+        return 'JOY'
 
 
 def get_vision_service():
@@ -46,17 +58,45 @@ def highlight_faces(image,faces):
     image.seek(0)
     im.save(image)
 
-def main(input_filename, max_results):
+def main(videodoc, max_results):
     #grabs directory videofile is in and runs every .png file through the vision api
-    dirname = os.path.dirname(input_filename)
+    dirname = os.path.dirname(videodoc.docfile.url)
 
     for file in os.listdir('.'+dirname):
         if file.endswith(".png"):
             with open('.'+dirname+'/'+file, 'r+b') as image:
+                newpic = Picture(video_loc=videodoc, picfile=(dirname+'/'+file)[6:])
                 faces = detect_face(image, max_results)
+                newpic.analyzed = True
                 image.seek(0)
-                if faces:
+                if faces is not None:
+                    newpic.numFaces=len(faces)
+                    if newpic.numFaces==1:
+                        newpic.face1=likely_sentiment(faces[0])
+                    elif newpic.numFaces==2:
+                        newpic.face1=likely_sentiment(faces[0])
+                        newpic.face2=likely_sentiment(faces[1])
+                    elif newpic.numFaces==3:
+                        newpic.face1=likely_sentiment(faces[0])
+                        newpic.face2=likely_sentiment(faces[1])
+                        newpic.face3=likely_sentiment(faces[2])
+                    elif newpic.numFaces==4:
+                        newpic.face1=likely_sentiment(faces[0])
+                        newpic.face2=likely_sentiment(faces[1])
+                        newpic.face3=likely_sentiment(faces[2])
+                        newpic.face4=likely_sentiment(faces[3])
                     highlight_faces(image, faces)
+                    if newpic.face1=='JOY' or newpic.face2=='JOY' or newpic.face3=='JOY' or newpic.face4=='JOY':
+                        videodoc.v_scoreHappy = videodoc.v_scoreHappy + 1
+                    if newpic.face1=='SORROW' or newpic.face2=='SORROW' or newpic.face3=='SORROW' or newpic.face4=='SORROW':
+                        videodoc.v_scoreSad = videodoc.v_scoreSad + 1
+                    if newpic.face1=='SURPRISE' or newpic.face2=='SURPRISE' or newpic.face3=='SURPRISE' or newpic.face4=='SURPRISE':
+                        videodoc.v_scoreSurprise = videodoc.v_scoreSurprise + 1
+                    if newpic.face1=='ANGER' or newpic.face2=='ANGER' or newpic.face3=='ANGER' or newpic.face4=='ANGER':
+                        videodoc.v_scoreAngry = videodoc.v_scoreAngry + 1
+                newpic.save()
+                videodoc.save()
+
 
 def grab_frame(videofile):
     #grabs the video file and splits it into an image ~every 2-4 seconds
