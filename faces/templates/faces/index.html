@@ -298,7 +298,7 @@ $(window).on('load', function() {
   <ul>
     {% for document in documents %}
     <!--<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li> -->
-    <li><a href="{% url "results" document.id %}">{{ document.docfile.name }}</a></li>
+    <li><a href="{% url "results" document.id %}">{{ document.docfile.name }} Happy: {{ document.v_scoreHappy }}  Sad: {{ document.v_scoreSad }} Surprise: {{ document.v_scoreSurprise }}  Angry: {{ document.v_scoreAngry }}</a></li>
     {% endfor %}
   </ul>
   {% else %}
